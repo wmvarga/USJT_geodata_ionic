@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      GeoData Ionic
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Continente</ion-label>
+      <ion-select>
+        <ion-option value="all">Todos</ion-option>
+        <ion-option value="africa">Africa</ion-option>
+        <ion-option value="americas">Americas</ion-option>
+        <ion-option value="asia">Ásia</ion-option>
+        <ion-option value="europe">Europa</ion-option>
+        <ion-option value="oceania">Oceania</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="listarPaises()">Listar países</button>
+</ion-content>
