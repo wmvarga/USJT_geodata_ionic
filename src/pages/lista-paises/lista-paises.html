@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Lista de países</ion-title>
+    <ion-title>Lista de países: {{continente}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,30 +16,12 @@
 <ion-content padding>
 
     <ion-list>
-        <ion-item (click)="detalhePais()">
-          <img src="assets/imgs/bra.png" class="bandeira" item-start>
-          <h2>Brazil</h2>
-          <p>Americas</p>
-          <p>Brasília</p>
+        <ion-item *ngFor="let pais of paises" (click)="detalhePais(pais)">
+          <img src="assets/imgs/{{pais.codigo3}}.png" class="bandeira" item-start>
+          <h2>{{pais.nome}}</h2>
+          <p>{{pais.regiao}}</p>
+          <p>{{pais.capital}}</p>
         </ion-item>
-        <ion-item (click)="detalhePais()">
-          <img src="assets/imgs/kor.png" class="bandeira" item-start>
-          <h2>Korea (Republic of)</h2>
-          <p>Asia</p>
-          <p>Seoul</p>
-        </ion-item>
-        <ion-item (click)="detalhePais()">
-          <img src="assets/imgs/jpn.png" class="bandeira" item-start>
-          <h2>Japan</h2>
-          <p>Asia</p>
-          <p>Tokyo</p>
-        </ion-item>
-        <ion-item (click)="detalhePais()">
-            <img src="assets/imgs/hun.png" class="bandeira" item-start>
-            <h2>Hungary</h2>
-            <p>Europe</p>
-            <p>Budapest</p>
-          </ion-item>
       </ion-list>
 
 </ion-content>

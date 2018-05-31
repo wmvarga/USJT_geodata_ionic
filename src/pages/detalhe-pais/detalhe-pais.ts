@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Pais } from '../../model/Pais';
 
 /**
  * Generated class for the DetalhePaisPage page.
@@ -15,7 +16,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DetalhePaisPage {
 
+  public pais: Pais;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    this.pais = navParams.get("pais");
+
   }
 
   ionViewDidLoad() {

@@ -6,7 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListaPaisesPage } from '../pages/lista-paises/lista-paises';
 import { DetalhePaisPageModule } from '../pages/detalhe-pais/detalhe-pais.module';
 import { ListaPaisesPageModule } from '../pages/lista-paises/lista-paises.module';
 
