@@ -19,10 +19,10 @@
 
     <ion-row>
       <ion-col col-3>
-        <img src="assets/imgs/{{pais.codigo3}}.png" class="bandeira">
+        <img [src]="pais.flag">
       </ion-col>
       <ion-col col-9>
-          <h2>{{pais.nome}}</h2>
+          <h2>{{pais.name}}</h2>
         </ion-col>
     </ion-row>
 
@@ -31,19 +31,19 @@
             Capital: {{pais.capital}}
         </ion-col>
         <ion-col col-12>
-            Código 3: {{pais.codigo3}}
+            Código 3: {{pais.alpha3Code}}
         </ion-col>
         <ion-col col-12>
-            Região: {{pais.regiao}}
+            Região: {{pais.region}}
         </ion-col>
         <ion-col col-12>
-            Sub-região: {{pais.subRegiao}}
+            Sub-região: {{pais.subregion}}
         </ion-col>
         <ion-col col-12>
-            Demonimo: {{pais.demonimo}}
+            Demonimo: {{pais.demonym}}
         </ion-col>
         <ion-col col-12>
-            População: {{pais.populacao}}
+            População: {{pais.population}}
         </ion-col>
         <ion-col col-12>
             Área: {{pais.area}}
@@ -52,10 +52,10 @@
             Gini: {{pais.gini}}
         </ion-col>
         <ion-col col-12>
-            Latitude: {{pais.latitude}}
+            Fuso horário: {{pais.timezones}}
         </ion-col>
         <ion-col col-12>
-            Longitude: {{pais.longitude}}
+            Latitude e longitude: {{pais.latlng}}
         </ion-col>
       </ion-row>
 

@@ -17,9 +17,9 @@
 
     <ion-list>
         <ion-item *ngFor="let pais of paises" (click)="detalhePais(pais)">
-          <img src="assets/imgs/{{pais.codigo3}}.png" class="bandeira" item-start>
-          <h2>{{pais.nome}}</h2>
-          <p>{{pais.regiao}}</p>
+          <img [src]="pais.flag" class="bandeira" item-start>
+          <h2>{{pais.name}}</h2>
+          <p>{{pais.region}}</p>
           <p>{{pais.capital}}</p>
         </ion-item>
       </ion-list>
