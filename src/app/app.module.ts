@@ -10,6 +10,9 @@ import { DetalhePaisPageModule } from '../pages/detalhe-pais/detalhe-pais.module
 import { ListaPaisesPageModule } from '../pages/lista-paises/lista-paises.module';
 import { HttpModule } from  "@angular/http";
 import { PaisProvider } from '../providers/pais/pais';
+import { SQLite } from '@ionic-native/sqlite';
+import { DatabaseProvider }	from '../providers/database/database';
+import { PaisDbProvider } from '../providers/pais-db/pais-db';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { PaisProvider } from '../providers/pais/pais';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PaisProvider
+    PaisProvider,
+    SQLite,
+    DatabaseProvider,
+    PaisDbProvider
   ]
 })
 export class AppModule {}

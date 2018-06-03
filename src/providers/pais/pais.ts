@@ -13,7 +13,7 @@ export class PaisProvider {
   private baseApiPath = 'https://restcountries.eu/rest/v2/'
 
   constructor(public http: Http) {
-    console.log('Hello PaisProvider Provider');
+    console.log('PaisProvider Provider: REST/JSON');
   }
 
   buscarPaises(continente: string) {

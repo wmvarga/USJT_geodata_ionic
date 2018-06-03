@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DetalhePaisPage } from '../detalhe-pais/detalhe-pais';
 import { Pais } from '../../model/Pais';
 import { PaisProvider } from '../../providers/pais/pais';
+import { PaisDbProvider } from '../../providers/pais-db/pais-db';
 
 /**
  * Generated class for the ListaPaisesPage page.
@@ -24,7 +25,7 @@ export class ListaPaisesPage {
   public paises = new Array<any>();
   public continente: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private paisProvider: PaisProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private paisProvider: PaisProvider, private paisDbProvider: PaisDbProvider) {
     
     this.continente = navParams.get("continente");
 
@@ -32,14 +33,30 @@ export class ListaPaisesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaPaisesPage');
-    this.paisProvider.buscarPaises(this.continente).subscribe(
-      data => {
-        const response = (data as any);
-        this.paises = JSON.parse(response._body);
-      }, error => {
-        console.log(error);
-      }
-    );
+
+    // Um século procurando depois..
+    if (navigator.onLine) {
+      console.log("Tem internet, buscando REST/JSON..");
+      // Se tem internet, busca REST
+      this.paisProvider.buscarPaises(this.continente).subscribe(
+        data => {
+          const response = (data as any);
+          this.paises = JSON.parse(response._body);
+        }, error => {
+          console.log(error);
+        }
+      );
+      // E insere no SQLite os países buscados
+      this.paisDbProvider.inserirPaises(this.paises);
+    } else {
+      console.log("Não tem internet, buscando no SQLite..");
+      // Busca no SQLite
+      this.paisDbProvider.listarPaises().then((paises: Pais[]) => {
+        this.paises = paises;
+      });
+    }
+    
+    
   }
 
   detalhePais(pais: Pais) {

@@ -1,13 +1,12 @@
 export interface Pais {
-    nome: string;
-    codigo3: string;
+    name: string;
+    alpha3Code: string;
     capital: string;
-    regiao: string;
-    subRegiao: string;
-    demonimo: string;
-    populacao: number;
+    region: string;
+    subregion: string;
+    demonym: string;
+    population: number;
     area: number;
     gini: number;
-    latitude: number;
-    longitude: number;
+    latlng: Array<any>;
 }
